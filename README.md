@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/vtbassmatt/django-drynk.svg?branch=master)](https://travis-ci.org/vtbassmatt/django-drynk)
 [![PyPI](https://img.shields.io/pypi/v/django-drynk.svg)](https://pypi.python.org/pypi/django-drynk)
 
 Introduction
@@ -32,10 +33,10 @@ Requirements and Installation
 -----------------------------
 
 The project has no dependencies outside of Django itself.
-It works with Python 3.4 / 3.5; other versions being tested soon.
+It works with Python 3.4 / 3.5 on Django 1.8 / 1.9.
 
 * `pip install django-drynk`
-* Add `drynk` to your `INSTALLED_APPS` (maybe - checking that).
+* Add `from drynk import with_natural_key` to your `models.py` file
 
 
 Use
@@ -75,6 +76,7 @@ Limitations
 
 * Is opinionated: Believes it should be the default Manager and be called `object`.
 * Probably breaks if you've already specified a manager, even by another name, on the model class.
+* Requires Python3. I like the `raise Exception from` syntax and `inspect.signature`.
 
 
 Contributions
@@ -84,4 +86,4 @@ I built this little project to satisfy a personal need, but thought it might be 
 If you have contributions, please don't hesitate to send a PR.
 Let's keep the tests passing and all will be well.
 My personal stack is currently Django 1.9 on Python 3.4, so that will be the most-tested.
-I will eventually set Travis up to cover Django 1.7, 1.8, and 1.9 on Python 2.7, 3.3-3.5, and nightly.
+Travis will cover Django 1.8 and 1.9 on Python 3.4, 3.5, and nightly.

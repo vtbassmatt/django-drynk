@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '0.1.0'
+version = '0.1.1'
 README = """
 django-drynk gives you DRY natural keys.
 
@@ -30,9 +30,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
-#        'Programming Language :: Python :: 2.7',
-#        'Programming Language :: Python :: 3',
-#        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
