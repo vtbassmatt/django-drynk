@@ -12,9 +12,6 @@ install:
 script: python src/runtests.py
 matrix:
   allow_failures:
-    - env: DJANGO_VERSION=1.8.9
-    - python: nightly
-    - env: DJANGO_VERSION=1.9.2
     - python: nightly
 notifications:
   email:
