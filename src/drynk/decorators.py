@@ -47,7 +47,12 @@ def with_natural_key(fields):
 
         for field_name in fields:
             if isinstance(klass._meta.get_field(field_name), models.fields.related.ForeignKey):
-                to_model = klass._meta.get_field(field_name).remote_field.to
+                try:
+                    # Django 1.9
+                    to_model = klass._meta.get_field(field_name).remote_field.to
+                except AttributeError:
+                    # Django 1.8
+                    to_model = klass._meta.get_field(field_name).related_field.model
                 dependencies.append(_build_dependency(to_model, field_name))
                 unrolled_fields.extend(_unroll_natural_key(to_model, field_name))
             else:
