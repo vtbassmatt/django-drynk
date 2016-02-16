@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '0.1.1'
+version = '0.1.2'
 README = """
 django-drynk gives you DRY natural keys.
 
