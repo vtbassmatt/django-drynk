@@ -89,6 +89,7 @@ def with_natural_key(fields):
 
         _m = NaturalKeyManager()
         # opinionated choice here: this should be the default manager and be called `objects`
+        # TODO: Django 1.10 rewrote how contribute_to_class works and I haven't had time to understand it yet.'
         _m.contribute_to_class(klass, "objects")
 
         return klass
@@ -106,7 +107,8 @@ def _unroll_natural_key(model, field_name):
     try:
         foreign_gbnk = model.objects.get_by_natural_key
     except AttributeError as e:
-        raise ImproperlyConfigured("expected to find a manager called "
-                                   "`objects` with a `get_by_natural_key` method") from e
+        err_str = ("expected to find a manager on %r called `objects`"
+                   " with a `get_by_natural_key` method") % (model,)
+        raise ImproperlyConfigured(err_str) from e
     sig = signature(foreign_gbnk)
     return ["{}__{}".format(field_name, k) for k,v in sig.parameters.items()]
