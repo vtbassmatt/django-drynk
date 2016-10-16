@@ -35,6 +35,9 @@ Requirements and Installation
 The project has no dependencies outside of Django itself.
 It works with Python 3.4 / 3.5 on Django 1.8 / 1.9.
 
+Django 1.10 changed an internal API and I haven't had a chance to fix it.
+The django-mptt folks hit similar issues, so I should look at what they did: https://github.com/django-mptt/django-mptt/blob/master/docs/upgrade.rst#086
+
 * `pip install django-drynk`
 * Add `from drynk import with_natural_key` to your `models.py` file
 
